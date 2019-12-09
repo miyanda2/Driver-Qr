@@ -1,0 +1,6 @@
+{% extends 'driver/base.html' %}
+{% load qr_code %}
+{% block content %}
+        <img src="{% qr_url_from_text 'Hello World!' %}" alt="Hello World!">
+    {%comment %}<img src="{% qr_url_from_text 'Hello World!'' %}" alt="Hello World!"> {%endcomment%}
+{% endblock %}
