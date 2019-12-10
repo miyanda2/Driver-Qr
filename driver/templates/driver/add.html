@@ -1,0 +1,33 @@
+<!-- Default input -->
+{% extends 'driver/base.html' %}
+{% block title %}Add Driver{% endblock %}
+{% block content %}
+<div class="col-md-2"></div>
+<div class="col-md-8">
+    <form method="post" enctype="multipart/form-data">
+      {%  csrf_token %}
+        <!-- Material input -->
+        <div class="md-form form-group mt-5">
+          <!-- <input type="text" name="name_of_driver" class="form-control" id="name_of_driver" placeholder="Name of Driver"> -->
+          {{form.name_of_driver}}
+          <label for="formGroupExampleInputMD">Name of Drive</label>
+        </div>
+        <div class="input-group" class="mb-5">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+            </div>
+            <div class="custom-file">
+              <!-- <input type="file" class="custom-file-input" id="uploadedImage"
+                aria-describedby="inputGroupFileAddon01" name="uploadedImage"> -->
+                {{form.uploadedImage}}
+                
+              <label class="custom-file-label" for="uploadedImage">Upload Image</label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block mt-4">Save</button>
+      </form>
+    
+</div>
+<div class="col-md-2"></div>
+
+{% endblock %}
