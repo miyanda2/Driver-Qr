@@ -1,0 +1,20 @@
+{% extends 'driver/base.html' %}
+{% load qr_code %}
+{% block content %}
+<div class="col-md-12">
+
+  <div style="height: 100vh">
+    <div class="flex-center flex-column">
+      <h1 class="animated fadeIn mb-2">Qr Project</h1>
+
+      <h5 class="animated fadeIn mb-1">Thank you for using our product. We're glad you're with us.</h5>
+
+      <p class="animated fadeIn text-muted">MDB Team</p>
+    </div>
+  </div>
+
+</div>
+
+        <!-- <img src="{% qr_url_from_text 'Hello World!' %}" alt="Hello World!"> -->
+    {%comment %}<img src="{% qr_url_from_text 'Hello World!'' %}" alt="Hello World!"> {%endcomment%}
+{% endblock %}

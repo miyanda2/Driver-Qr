@@ -10,5 +10,7 @@ django = "*"
 pillow = "*"
 djangorestframework = "*"
 
+django-qr-code = "*"
+
 [requires]
 python_version = "3.6"
