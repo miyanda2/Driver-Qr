@@ -17,16 +17,22 @@ from django.contrib import admin
 from django.urls import path, include 
 from django.conf import settings
 from django.conf.urls.static import static
-from driver.views import home
+from driver.views import (
+    home,
+    DriverAddView,
+    DetailDriverView,
+    ListDriverView
+)
 from qr_code import urls as qr_code_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('', home,include(qr_code_urls, namespace="qr_code"))
-   path('', home),
-       path('qr_code',include(qr_code_urls, namespace="qr_code"))
+    path('', home),
+    path('driver/add/',DriverAddView.as_view(), name="driver_add"),
+    path('driver/drivers/',ListDriverView.as_view(), name="driver_list"),
+    path('driver/<int:pk>/',DetailDriverView.as_view(), name="driver_detail"),
+    path('qr_code',include(qr_code_urls, namespace="qr_code"))
 
- 
 ]
 
 
