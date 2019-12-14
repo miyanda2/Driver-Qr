@@ -1,5 +1,5 @@
 from django import forms
-from .models import Driver
+from .models import Driver,FieldNumber
 
 class AddDriverForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -24,3 +24,19 @@ class AddDriverForm(forms.ModelForm):
     class Meta:
         model = Driver
         fields="__all__"
+
+
+class AddFieldNumber(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['state_of_issuance'].widget.attrs.update({'class':'form-control'})
+        self.fields['class_of_liscense'].widget.attrs.update({'class':'form-control'})
+        self.fields['number_of_replacement'].widget.attrs.update({'class':'form-control'})
+        self.fields['license_of_number'].widget.attrs.update({'class':'form-control'})
+        self.fields['chassess_number'].widget.attrs.update({'class':'form-control'})
+        self.fields['plate_number'].widget.attrs.update({'class':'form-control'})
+        self.fields['expiry_date'].widget.attrs.update({'class':'form-control'})
+        self.fields['flag'].widget.attrs.update({'class':'form-control'})
+    class Meta:
+        model = FieldNumber
+        exclude=("driver",)

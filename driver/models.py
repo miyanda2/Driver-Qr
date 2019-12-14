@@ -45,4 +45,7 @@ class FieldNumber(models.Model):
     plate_number =models.CharField(max_length=250, blank=True,null=True)
     expiry_date = models.DateTimeField()
     flag = models.BooleanField(default=False)
+    date_added = models.DateTimeField(auto_now_add=True)
+    date_updated= models.DateTimeField(auto_now=True)
+
 

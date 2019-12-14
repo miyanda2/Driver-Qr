@@ -6,7 +6,7 @@ from django.views.generic import (
     DeleteView,
     ListView
 ) 
-from driver.models import Driver
+from driver.models import Driver,FieldNumber
 from .forms import AddDriverForm  
 # Create your views here.
 
@@ -20,6 +20,17 @@ class DriverAddView(CreateView):
     form_class= AddDriverForm
     template_name= "driver/add.html"
     success_url = "/driver/drivers/"
+    
+class FieldNumberAddView(CreateView):
+    model =FieldNumber
+    form_class= AddDriverForm
+    template_name= "driver/field_number/add.html"
+    # success_url = "/driver/drivers/"
+    
+    # def form_valid(self, form):
+    #     driver = Driver.objects.get(user=self.request.user)
+    #     form.instance.driver = driver
+    #     return super().form_valid(form)
     
 
 class DetailDriverView(DetailView):
