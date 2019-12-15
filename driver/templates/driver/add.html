@@ -7,11 +7,102 @@
     <form method="post" enctype="multipart/form-data">
       {%  csrf_token %}
         <!-- Material input -->
-        <div class="md-form form-group mt-5">
+        <!-- name_of_driver -->
+        <div class="md-form form-group ">
           <!-- <input type="text" name="name_of_driver" class="form-control" id="name_of_driver" placeholder="Name of Driver"> -->
           {{form.name_of_driver}}
-          <label for="formGroupExampleInputMD">Name of Drive</label>
+          <label for="formGroupExampleInputMD">Name of Driver</label>
         </div>
+
+        <div class="md-form form-group mb-4">
+            <!-- <input type="text" name="name_of_driver" class="form-control" id="name_of_driver" placeholder="Name of Driver"> -->
+            {{form.email_address}}
+            <label for="formGroupExampleInputMD">Email address</label>
+          </div>
+  
+          <div class="md-form form-group mb-4">
+              <!-- <input type="text" name="name_of_driver" class="form-control" id="name_of_driver" placeholder="Name of Driver"> -->
+              {{form.address}}
+              <label for="formGroupExampleInputMD">Address</label>
+            </div>
+            
+            <div class="md-form form-group mb-4">
+                <!-- <input type="text" name="name_of_driver" class="form-control" id="name_of_driver" placeholder="Name of Driver"> -->
+                {{form.city}}
+                <label for="formGroupExampleInputMD">City</label>
+              </div>
+            
+              <div class="md-form form-group mb-4">
+                  <!-- <input type="text" name="name_of_driver" class="form-control" id="name_of_driver" placeholder="Name of Driver"> -->
+                  {{form.phone_number}}
+                  <label for="formGroupExampleInputMD">Phone Number</label>
+                </div>
+            
+                <div class="md-form form-group mb-4">
+                    <!-- <input type="text" name="name_of_driver" class="form-control" id="name_of_driver" placeholder="Name of Driver"> -->
+                    {{form.date_of_birth}}
+                    <label for="formGroupExampleInputMD">Date Of Birth</label>
+                  </div>
+            
+                  <div class="md-form form-group mb-4">
+                      <!-- <input type="text" name="name_of_driver" class="form-control" id="name_of_driver" placeholder="Name of Driver"> -->
+                      {{form.educational_background}}
+                      <label for="formGroupExampleInputMD">Educational Background</label>
+                    </div>
+            
+                    <div class="md-form form-group mb-4">
+                        <!-- <input type="text" name="name_of_driver" class="form-control" id="name_of_driver" placeholder="Name of Driver"> -->
+                        {{form.state_of_origin}}
+                        <label for="formGroupExampleInputMD">State Of Origin</label>
+                      </div>
+                      
+                      <div class="md-form form-group mb-4">
+                          <!-- <input type="text" name="name_of_driver" class="form-control" id="name_of_driver" placeholder="Name of Driver"> -->
+                          {{form.local_government}}
+                          <label for="formGroupExampleInputMD">Local Government</label>
+                        </div>
+                        
+                        <div class="md-form form-group mb-4">
+                            <!-- <input type="text" name="name_of_driver" class="form-control" id="name_of_driver" placeholder="Name of Driver"> -->
+                            {{form.blood_group}}
+                            <label for="formGroupExampleInputMD">Blood Group</label>
+                          </div>
+
+                        <div class="md-form form-group mb-4">
+                          <!-- <input type="text" name="name_of_driver" class="form-control" id="name_of_driver" placeholder="Name of Driver"> -->
+                          {{form.height}}
+                          <label for="formGroupExampleInputMD">Height</label>
+                        </div>
+
+                        <div class="md-form form-group mb-4">
+                            <!-- <input type="text" name="name_of_driver" class="form-control" id="name_of_driver" placeholder="Name of Driver"> -->
+                            {{form.any_form_of_disability}}
+                            <label for="formGroupExampleInputMD">Any Form Of Disability</label>
+                          </div>
+  
+                          <div class="md-form form-group mb-4">
+                              <!-- <input type="text" name="name_of_driver" class="form-control" id="name_of_driver" placeholder="Name of Driver"> -->
+                              {{form.nationality}}
+                              <label for="formGroupExampleInputMD">Nationality</label>
+                            </div>
+    
+                            <div class="md-form form-group mb-4">
+                                <!-- <input type="text" name="name_of_driver" class="form-control" id="name_of_driver" placeholder="Name of Driver"> -->
+                                {{form.next_of_kin}}
+                                <label for="formGroupExampleInputMD">Next of kin</label>
+                              </div>
+      
+                              <div class="md-form form-group mb-4">
+                                  <!-- <input type="text" name="name_of_driver" class="form-control" id="name_of_driver" placeholder="Name of Driver"> -->
+                                  {{form.next_of_kin_phone_number}}
+                                  <label for="formGroupExampleInputMD">Next of kin phone number</label>
+                                </div>
+                                <div class="md-form form-group mb-4">
+                                    <!-- <input type="text" name="name_of_driver" class="form-control" id="name_of_driver" placeholder="Name of Driver"> -->
+                                    {{form.previous_number}}
+                                    <label for="formGroupExampleInputMD">Previous Number</label>
+                                  </div>
+                          
         <div class="input-group" class="mb-5">
             <div class="input-group-prepend">
               <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
