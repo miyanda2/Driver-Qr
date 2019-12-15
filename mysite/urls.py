@@ -21,18 +21,22 @@ from driver.views import (
     home,
     DriverAddView,
     DetailDriverView,
-    ListDriverView
+    ListDriverView,
+    UserCreationView
 )
+from driver.forms import LoginForm
 from qr_code import urls as qr_code_urls
-
+from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
+    path('', home,name="home"),
+    path('login/',auth_views.LoginView.as_view(template_name="driver/auth/login.html",form_class=LoginForm),name="login"),
+    path('signup/', UserCreationView.as_view(), name="signup"),
+    path('logout/',auth_views.LogoutView.as_view(template_name="driver/auth/logout.html"),name="logout"),
     path('driver/add/',DriverAddView.as_view(), name="driver_add"),
     path('driver/drivers/',ListDriverView.as_view(), name="driver_list"),
     path('driver/<int:pk>/',DetailDriverView.as_view(), name="driver_detail"),
     path('qr_code',include(qr_code_urls, namespace="qr_code"))
-
 ]
 
 

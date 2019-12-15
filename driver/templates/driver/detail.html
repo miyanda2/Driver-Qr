@@ -5,17 +5,29 @@
   <!-- <link href="css/style.min.css" rel="stylesheet"> -->
 
 <!-- <body class="grey lighten-3"> -->
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-                <main class="pt-5 mx-lg-5">
-                    <h3 class="text-center"> QR CODE</h3>
-                        <div class="container-fluid mt-5">
-                                <img   src="{% qr_url_from_text '{{driver.uploadedImage.url}}' %}" alt="Hello World!">
-                        </div>
-                      </main>
-        
-        </div>
         <div class="col-md-4"></div>  
+
+        <div class="col-md-6 img">
+          <img   src="{% qr_url_from_text '{{driver.uploadedImage.url}}' %}" alt="Hello World!">
+        </div>
+        <div class="col-md-6 details">
+          <blockquote>
+            <h5>{{driver.name_of_driver}}</h5>
+            <small><cite title="Source Title">Chicago, United States of America  <i class="icon-map-marker"></i></cite></small>
+          </blockquote>
+          <p>
+            {{driver.email_address}} <br>
+            www.bootsnipp.com <br>
+            {{driver.date_of_birth}} <br>
+            {{driver.phone_number}} <br>
+            {{driver.state_of_origin}} <br>
+            {{driver.nationality}} <br>
+            {{driver.address}} <br>
+            {{driver.height}} cm <br>
+            
+
+          </p>
+        </div>
   <!--Main layout-->
 
 {% endblock %}

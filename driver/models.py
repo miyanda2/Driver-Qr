@@ -1,7 +1,9 @@
 from django.db import models
+from django.contrib.auth.models import User
 
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 # Create your models here.
-
 
 
 class Driver(models.Model):
@@ -13,6 +15,7 @@ class Driver(models.Model):
     lisence
     r code 
     '''
+    user =  models.OneToOneField(User,models.CASCADE)
     name_of_driver  = models.CharField(max_length=250, blank=True,null=True)
     email_address = models.EmailField()
     address = models.CharField(max_length=14,blank=True,null=True)
@@ -33,6 +36,13 @@ class Driver(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     date_updated= models.DateTimeField(auto_now=True)
 
+
+
+# @receiver(post_save, sender=User)
+# def update_driver_signal(sender, instance, created, **kwargs):
+#     if created:
+#         Driver.objects.create(user=instance)
+#     instance.driver.save()
 
 
 class FieldNumber(models.Model):

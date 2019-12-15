@@ -1,0 +1,48 @@
+{% extends 'driver/base.html'%}
+{% block title %} Signup {% endblock %}
+
+{% block content %}
+<!-- Material form login -->
+<div class="col-md-4"></div>
+<!-- Default form register -->
+<form class="text-center border border-light p-5 mt-4" method="POST">
+{% csrf_token %}
+    <p class="h4 mb-4">Sign up</p>
+
+    <!-- username -->
+    {{form.username}}
+
+    <!-- E-mail -->
+    {{form.email}}
+
+    <!-- fullname -->
+    {{form.full_name}}
+
+
+    <!-- Password1 -->
+    {{form.pwd1}}
+    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+        At least 8 characters and 1 digit
+    </small>
+
+        <!-- Password2 -->
+    {{form.pwd2}}
+    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+        At least 8 characters and 1 digit
+    </small>
+
+    
+
+    <!-- Sign up button -->
+    <button class="btn btn-info my-4 btn-block" type="submit">Sign in</button>
+    <hr>
+
+        <!-- Terms of service -->
+        <p>By clicking
+            <em>Sign up</em> you agree to our
+            <a href="" target="_blank">terms of service</a>
+
+</form>
+<!-- Default form register -->
+  <!-- Material form login -->
+{% endblock %}

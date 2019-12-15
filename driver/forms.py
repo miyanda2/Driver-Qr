@@ -1,5 +1,7 @@
 from django import forms
 from .models import Driver,FieldNumber
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 
 class AddDriverForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -23,7 +25,7 @@ class AddDriverForm(forms.ModelForm):
         self.fields['uploadedImage'].widget.attrs.update({'class':'custom-file-label', 'type':'file','id':'uploadedImage'})
     class Meta:
         model = Driver
-        fields="__all__"
+        exclude= ('user',)
 
 
 class AddFieldNumber(forms.ModelForm):
@@ -40,3 +42,62 @@ class AddFieldNumber(forms.ModelForm):
     class Meta:
         model = FieldNumber
         exclude=("driver",)
+
+
+# Seller Registration Form
+class SignupForm(forms.ModelForm):
+    full_name= forms.CharField(max_length=50)
+    username = forms.CharField(max_length=100)
+    email = forms.EmailField()
+    pwd1 = forms.CharField(max_length=50, widget=forms.PasswordInput(), label='Password')
+    pwd2 = forms.CharField(max_length=50, widget=forms.PasswordInput(), label='Re-Enter Password')
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['full_name'].widget.attrs.update({'class':'form-control mb-4', 'placeholder':'Enter Full Name'})
+        self.fields['username'].widget.attrs.update({'class':'form-control mb-4', 'placeholder':'Enter Username'})
+        self.fields['email'].widget.attrs.update({'class':'form-control mb-4','placeholder':'Enter Email'})
+        self.fields['pwd1'].widget.attrs.update({'class':'form-control mb-4','placeholder':'Enter Password' })
+        self.fields['pwd2'].widget.attrs.update({'class':'form-control mb-4','placeholder':'Retype Password' })
+
+    class Meta:
+        model = User
+        fields = [ 
+                'full_name', 
+                'username',
+                'email', 
+                'pwd1', 
+                'pwd2', 
+                ]
+
+    def clean_username(self):
+        if 'username' in self.cleaned_data:
+            try:
+                User.objects.get(username=self.cleaned_data['username'])
+            except User.DoesNotExist:
+                return self.cleaned_data['username']
+            else:
+                raise forms.ValidationError(
+                    'An account with this email already exists')
+
+    def clean_pwd2(self):
+        password1 = self.cleaned_data.get("pwd1")
+        password2 = self.cleaned_data.get("pwd2")  
+        if password1 and password2 and password1 != password2:
+            raise forms.ValidationError("Passwords don't match")
+        return password2
+
+    def save(self, commit=True):
+            user = super().save(commit=False)
+            user.set_password(self.cleaned_data['pwd1'])
+            if commit:
+                user.save()
+            return user
+
+class LoginForm(AuthenticationForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs.update({'class':'form-control mb-4','placeholder':'username'})
+        self.fields['password'].widget.attrs.update({'class':'form-control mb-4','placeholder':'password'})
+
+
