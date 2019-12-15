@@ -46,7 +46,7 @@ class Driver(models.Model):
 
 
 class FieldNumber(models.Model):
-    driver =models.ForeignKey(Driver,models.CASCADE)
+    driver =models.OneToOneField(Driver,models.CASCADE)
     state_of_issuance = models.CharField(max_length=250, blank=True,null=True)
     class_of_liscense= models.CharField(max_length=250, blank=True,null=True)
     number_of_replacement = models.CharField(max_length=250, blank=True,null=True)

@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,redirect
 from django.http import HttpResponse
 from django.views.generic import (
     CreateView,
@@ -7,7 +7,7 @@ from django.views.generic import (
     ListView
 ) 
 from driver.models import Driver,FieldNumber
-from .forms import AddDriverForm, SignupForm  
+from .forms import AddDriverForm, SignupForm,AddDriverFieldForm  
 from  django.contrib.auth.models import User
 # Create your views here.
 
@@ -31,8 +31,27 @@ class DriverAddView(CreateView):
 
 class FieldNumberAddView(CreateView):
     model =FieldNumber
-    form_class= AddDriverForm
+    form_class= AddDriverFieldForm
     template_name= "driver/field_number/add.html"
+
+
+    def get(self, request,*args, **kwargs):
+        pk = self.kwargs['pk']
+        driver = get_object_or_404(Driver, pk=pk)
+        context = {
+            'driver':driver,
+            'form':self.form_class
+        }
+        print("Pk", pk)
+        return render(request, self.template_name, context)
+
+    def form_valid(self, form):
+        driver = Driver.objects.get(user=self.request.user)
+        form.instance.driver = driver
+        form.save()
+        redirect('/driver/{}'.format(driver.id))
+        return super().form_valid(form)    
+
     # success_url = "/driver/drivers/"
     
     # def form_valid(self, form):
@@ -60,6 +79,7 @@ class ListDriverView(ListView):
     queryset = Driver.objects.all().order_by("date_added")
     template_name="driver/list.html"
     context_object_name="drivers"
+
 
 class UserCreationView(CreateView):
     model = User

@@ -22,7 +22,8 @@ from driver.views import (
     DriverAddView,
     DetailDriverView,
     ListDriverView,
-    UserCreationView
+    UserCreationView,
+    FieldNumberAddView
 )
 from driver.forms import LoginForm
 from qr_code import urls as qr_code_urls
@@ -36,6 +37,7 @@ urlpatterns = [
     path('driver/add/',DriverAddView.as_view(), name="driver_add"),
     path('driver/drivers/',ListDriverView.as_view(), name="driver_list"),
     path('driver/<int:pk>/',DetailDriverView.as_view(), name="driver_detail"),
+    path('driver/<int:pk>/liscense/add/',FieldNumberAddView.as_view(), name="field_number"), 
     path('qr_code',include(qr_code_urls, namespace="qr_code"))
 ]
 

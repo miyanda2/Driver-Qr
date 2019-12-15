@@ -5,10 +5,12 @@
   <!-- <link href="css/style.min.css" rel="stylesheet"> -->
 
 <!-- <body class="grey lighten-3"> -->
-        <div class="col-md-4"></div>  
+    <div class="col-md-4">
+    </div>  
 
         <div class="col-md-6 img">
           <img   src="{% qr_url_from_text '{{driver.uploadedImage.url}}' %}" alt="Hello World!">
+          <!-- <button class="btn btn-primary">Add Field Number</button> -->
         </div>
         <div class="col-md-6 details">
           <blockquote>
@@ -24,9 +26,10 @@
             {{driver.nationality}} <br>
             {{driver.address}} <br>
             {{driver.height}} cm <br>
-            
-
           </p>
+          <a href="{% url 'field_number' driver.id %}">
+              <button type="button" class="btn btn-primary">Add Field Number</button>
+          </a>  
         </div>
   <!--Main layout-->
 

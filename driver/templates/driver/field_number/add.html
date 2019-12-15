@@ -1,0 +1,27 @@
+{% extends 'driver/base.html'%}
+{% block title %} {{driver.name_of_driver}} {% endblock %}
+
+    
+{% block content %}
+<div class="col-md-2"></div>
+<div class="col-md-8">
+<form class="" method="post" enctype="multipart/form-data">
+    {%  csrf_token %}
+    {{form.as_p}}
+    <!-- <div class="md-form form-group ">
+        <input type="text" name="name_of_driver" class="form-control" id="name_of_driver" placeholder="Name of Driver"> -->
+        <!-- {{form.state_of_issuance}}
+        <label for="formGroupExampleInputMD">State of Issuance</label>
+    </div>
+     -->
+    <!-- <div class="md-form form-group mb-4"> -->
+        <!-- <input type="text" name="name_of_driver" class="form-control" id="name_of_driver" placeholder="Name of Driver"> -->
+        <!-- {{form.class_of_liscense}}
+        <label for="formGroupExampleInputMD">Class of liscense</label>
+    </div> -->
+
+    <button class="btn btn-primary btn-block" type="submit">Submit</button>
+
+</form>
+</div>
+{% endblock %}
