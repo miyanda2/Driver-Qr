@@ -101,3 +101,28 @@ class LoginForm(AuthenticationForm):
         self.fields['password'].widget.attrs.update({'class':'form-control mb-4','placeholder':'password'})
 
 
+
+class AddDriverFieldForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['state_of_issuance'].widget.attrs.update({'class':'form-control mb-4','placeholder':'username'})
+        self.fields['class_of_liscense'].widget.attrs.update({'class':'form-control mb-4','placeholder':'username'})
+        self.fields['number_of_replacement'].widget.attrs.update({'class':'form-control mb-4','placeholder':'username'})
+        self.fields['license_of_number'].widget.attrs.update({'class':'form-control mb-4','placeholder':'username'})
+        self.fields['chassess_number'].widget.attrs.update({'class':'form-control mb-4','placeholder':'username'})
+        self.fields['plate_number'].widget.attrs.update({'class':'form-control mb-4','placeholder':'username'})
+        self.fields['expiry_date'].widget.attrs.update({'class':'form-control mb-4','placeholder':'username'})
+        self.fields['flag'].widget.attrs.update({'class':'form-control mb-4','placeholder':'username'})
+
+    class Meta:
+        model = FieldNumber
+        exclude = ("driver",)
+
+
+
+
+    
+
+
+
+
