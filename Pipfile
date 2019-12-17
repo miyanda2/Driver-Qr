@@ -9,7 +9,7 @@ verify_ssl = true
 django = "*"
 pillow = "*"
 djangorestframework = "*"
-
+gunicorn = "*"
 django-qr-code = "*"
 
 [requires]
