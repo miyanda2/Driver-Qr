@@ -8,3 +8,4 @@ six==1.13.0
 sqlparse==0.3.0
 gunicorn
 django-heroku
+dj_database_url
