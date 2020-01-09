@@ -9,8 +9,8 @@ verify_ssl = true
 django = "*"
 pillow = "*"
 djangorestframework = "*"
-
 django-qr-code = "*"
+qrcode = {extras = ["pil"],version = "*"}
 
 [requires]
 python_version = "3.6"

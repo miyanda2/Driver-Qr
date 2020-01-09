@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+import qrcode
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 # Create your models here.
@@ -36,6 +36,24 @@ class Driver(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     date_updated= models.DateTimeField(auto_now=True)
 
+
+    # def save(self, *args, **kwargs):
+    #     qr = qrcode.QRCode(
+    #         version=1,
+    #         box_size=15,
+    #         border=5
+    #     )
+    #     qr = qrcode.add_data(self.name_of_driver)
+    #     qr = qrcode.add_data(self.email_address)
+    #     qr = qrcode.add_data(self.address)
+    #     qr = qrcode.add_data(self.city)
+    #     qr = qrcode.add_data(self.phone_number)
+    #     qr = qrcode.add_data(self.nationality)
+    #     qr = qrcode.add_data(self.state_of_origin)
+    #     qr = qrcode.add_data(self.local_government)
+    #     img = qr.make_image()
+    #     img.save("Details.png")
+    #     super(Model, self).save(*args, **kwargs)
 
 
 # @receiver(post_save, sender=User)
