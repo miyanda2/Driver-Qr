@@ -35,6 +35,17 @@ class Driver(models.Model):
     previous_number =models.CharField(max_length=250, blank=True,null=True)
     date_added = models.DateTimeField(auto_now_add=True)
     date_updated= models.DateTimeField(auto_now=True)
+    state_of_issuance = models.CharField(max_length=250, blank=True,null=True)
+    class_of_liscense= models.CharField(max_length=250, blank=True,null=True)
+    number_of_replacement = models.CharField(max_length=250, blank=True,null=True)
+    license_of_number = models.CharField(max_length=250, blank=True,null=True)
+    chassess_number = models.CharField(max_length=250, blank=True,null=True)
+    plate_number =models.CharField(max_length=250, blank=True,null=True)
+    expiry_date = models.DateTimeField(null=True)
+    flag = models.BooleanField(default=False)
+    
+    def __str__(self):
+        return self.name_of_driver
 
 
 
@@ -57,5 +68,6 @@ class FieldNumber(models.Model):
     flag = models.BooleanField(default=False)
     date_added = models.DateTimeField(auto_now_add=True)
     date_updated= models.DateTimeField(auto_now=True)
+    
 
 

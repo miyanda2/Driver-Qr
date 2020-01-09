@@ -15,21 +15,33 @@
         <div class="col-md-6 details">
           <blockquote>
             <h5>{{driver.name_of_driver}}</h5>
-            <small><cite title="Source Title">Chicago, United States of America  <i class="icon-map-marker"></i></cite></small>
+            <!-- <small><cite title="Source Title">Chicago, United States of America  <i class="icon-map-marker"></i></cite></small> -->
           </blockquote>
           <p>
             {{driver.email_address}} <br>
-            www.bootsnipp.com <br>
+            
             {{driver.date_of_birth}} <br>
             {{driver.phone_number}} <br>
             {{driver.state_of_origin}} <br>
             {{driver.nationality}} <br>
             {{driver.address}} <br>
-            {{driver.height}} cm <br>
+            {{driver.height}}cm<br>
+            {{driver.state_of_issuance}}<br>
+            {{driver.class_of_liscense}}<br>
+            {{driver.number_of_replacement}} <br>
+            {{driver.license_of_number}} <br>
+            {{driver.chassess_number}}<br>
+            {{driver.plate_number}}<br>
+            {{driver.expiry_date}}<br>
+
+           <h1> Flaged:-    {{driver.flag}}<br> </h1>
+            
+            
+
           </p>
-          <a href="{% url 'field_number' driver.id %}">
+          <!-- <a href="{% url 'field_number' driver.id %}">
               <button type="button" class="btn btn-primary">Add Field Number</button>
-          </a>  
+          </a>   -->
         </div>
   <!--Main layout-->
 

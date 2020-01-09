@@ -26,7 +26,9 @@ class DriverFieldNumberAdmin(admin.ModelAdmin):
         'date_updated'
     )
 admin.site.register(Driver,DriverAdmin)
-admin.site.register(FieldNumber,DriverFieldNumberAdmin)
+# admin.site.register(FieldNumber,DriverFieldNumberAdmin)
+
+
 admin.site.site_header = "Driver Qr by Olatunde Peter"
 admin.site.site_title = "Driver Qr"
 admin.site.index_title = "Welcome to Driver Qr by Olatunde Peter"
